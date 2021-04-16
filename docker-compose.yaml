@@ -1,0 +1,15 @@
+version: '3'
+services:
+  BA_webserver:
+    image: $image
+    shm_size: '4gb'
+    container_name: 'BA_webserver'
+    restart: always
+    volumes:
+      - $data_files:/data_files/
+    ports:
+      - 5006:5006
+    networks:
+      - nrbat_dev
+    environment:
+      - PYTHONUNBUFFERED=1
